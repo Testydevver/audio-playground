@@ -1,12 +1,15 @@
 const app = Vue.createApp({
   data() {
     return {
-      testData: "Hello World",
+      audioSource: "",
     };
   },
   methods: {
     handleAudio(event) {
-      console.log("Handling audio");
+      const audioFile = event.target.files[0];
+      const url = URL.createObjectURL(audioFile);
+      console.log("Handling audio", url);
+      this.audioSource = url;
     },
   },
 });
